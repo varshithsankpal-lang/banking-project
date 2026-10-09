@@ -39,5 +39,37 @@ email varchar(50),
 phone varchar(20),
 dob date
 );
+alter table accounts
+add column cust_id int;
+desc accounts;
+desc loans;
+desc customers;
+alter table loans
+add column cust_id int ;
+alter table loans
+add foreign key (cust_id)
+references customers(cust_id);
+alter table customers
+add column acc_id int;
+alter table customers 
+add foreign key (acc_id)
+references accounts (acc_id);
+desc branches;
+alter table branches 
+add column acc_id int;
+alter table branches 
+add foreign key (acc_id)
+references accounts (acc_id);
+alter table transactions
+add column acc_id int;
+desc transactions;
+alter table transactions 
+add foreign key (acc_id)
+references accounts (acc_id);
+
+
+
+
+
 
 
