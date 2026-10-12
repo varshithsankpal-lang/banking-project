@@ -124,3 +124,60 @@ SELECT * FROM accounts;
 SELECT * FROM branches;
 SELECT * FROM loans;
 SELECT * FROM transactions;
+select * from customers;
+
+select count(*) from  loans
+where interestrate>8;
+
+select * from loans;
+select min(loanamount) from loans;
+
+select * from accounts 
+where account_type="savings";
+
+select max(balance) from accounts;
+
+select balance
+from accounts
+where balance between 50000 and 100000 ;
+
+select distinct account_type from accounts;
+
+select * from accounts 
+order by balance ;
+
+select * from customers
+order by phone ;
+
+select * from accounts 
+order by acc_id
+limit 100;
+
+select account_type , count(acc_id) as cnt
+from accounts 
+group by account_type 
+order by cnt desc
+limit 3 ;
+
+select acc_id,account_type,balance,cust_id,
+case 
+when balance<25000 then "low balance"
+when balance<100000 then "mid balance"
+else "high balance"
+end as cat 
+from accounts;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
