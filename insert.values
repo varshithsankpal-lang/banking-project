@@ -156,8 +156,7 @@ limit 100;
 select account_type , count(acc_id) as cnt
 from accounts 
 group by account_type 
-order by cnt desc
-limit 3 ;
+having cnt>5;
 
 select acc_id,account_type,balance,cust_id,
 case 
@@ -166,6 +165,55 @@ when balance<100000 then "mid balance"
 else "high balance"
 end as cat 
 from accounts;
+
+select upper(firstname) from customers;
+select lower(firstname) from customers;
+
+select concat(firstname,"-",lastname) from customers;
+
+select lower(transactiontype) from transactions;
+select upper(transactiontype) from transactions;
+select concat(loanamount,"-----",interestrate) from loans;
+
+select * from loans;
+select round(interestrate) from loans;
+select ceil(interestrate) from loans;
+select floor(interestrate) from loans;
+
+select abs(-5);
+select mod(27,4);
+
+select current_time();
+select current_date();
+select now();
+
+select * from customers;
+
+select abs(datediff(startdate,enddate)) from loans;
+select timestampdiff(month,startdate,enddate) from loans;
+
+select year(startdate) from loans;
+
+select firstname,dob,
+if (year(dob)<=1995,
+"adult","young") as cat 
+from customers;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
